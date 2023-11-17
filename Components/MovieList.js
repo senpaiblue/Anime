@@ -12,16 +12,18 @@ import Vanitas from "../assets/Vanitas.jpg";
 import { useNavigation } from "@react-navigation/native";
 
 var { width, height } = Dimensions.get("window");
-export default function MovieList({ title, data }) {
+export default function MovieList({ title, data, hideSellAll }) {
   const navigation = useNavigation();
   const MovieName = "The Case Study Of Vanitas";
   return (
     <View className="mb-8 spcae-y-4">
       <View className="flex-row justify-between items-center mb-4 mx-5">
         <Text className="text-white text-xl font-bold">{title}</Text>
-        <TouchableOpacity>
+        { !hideSellAll &&(
+          <TouchableOpacity>
           <Text className="text-white text-xl font-bold">See All</Text>
         </TouchableOpacity>
+        ) }
       </View>
 
       <ScrollView
@@ -33,7 +35,7 @@ export default function MovieList({ title, data }) {
           return (
             <TouchableNativeFeedback
               key={index}
-              onPress={navigation.navigate("Movie", item)}
+              onPress={()=>navigation.push("Movie", item)}
             >
               <View className='flex justify-between items-center px-2'>
                 <View className="flex justify-center items-start gap-1">

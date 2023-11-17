@@ -14,7 +14,7 @@ const ios = Platform.OS == "ios";
 export default function HomeScreen() {
   const [trending, setTrending] = useState ([1,2,3,4,5])
   const [upComing, setUpComing] = useState ([1,2,3,4,5])
-  const [topRated, setTopRated] = useState ([1,2,3])
+  const [topRated, setTopRated] = useState ([1,2,3,4,5])
   return (
     <View className="flex-1 bg-pink-300">
       {/*search bar and the logo */}
