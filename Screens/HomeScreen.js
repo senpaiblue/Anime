@@ -9,12 +9,14 @@ import {
 } from "react-native-heroicons/outline";
 import TrendingMovies from "../Components/TrendingMovies";
 import MovieList from "../Components/MovieList";
+import { useNavigation } from "@react-navigation/native";
 
 const ios = Platform.OS == "ios";
 export default function HomeScreen() {
   const [trending, setTrending] = useState ([1,2,3,4,5])
   const [upComing, setUpComing] = useState ([1,2,3,4,5])
   const [topRated, setTopRated] = useState ([1,2,3,4,5])
+  const navigation= useNavigation()
   return (
     <View className="flex-1 bg-pink-300">
       {/*search bar and the logo */}
@@ -25,7 +27,7 @@ export default function HomeScreen() {
           <Text className="text-pink-500 font-bold text-3xl">
             <Text className="text-pink-700 font-bold text-3xl">A</Text>nime
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate('Search')}>
             <MagnifyingGlassIcon size="30" strokeWidth={2} color="white" />
           </TouchableOpacity>
         </View>
