@@ -24,6 +24,7 @@ export default function MovieScreen() {
   const navigation = useNavigation();
   const [isFavourite, toggleFavourite] = useState(false);
   const [SimilarMovies,SetSimilarMovies]=useState([1,2,3,4,5])
+  const [loading,setloading]=useState(false)
   const { params: item } = useRoute();
   useEffect(() => {
     //call the movie details api
